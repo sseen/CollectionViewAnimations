@@ -82,7 +82,7 @@ class ViewController: UIViewController {
     @objc func ck(_:UIButton) {
         let context = InvalidationContext()
         context.invalidateSectionHeaders = true
-        self.collectionView.collectionViewLayout.invalidateLayout(with: context)
+        self.layout.invalidateLayout(with: context)
     }
 
     // MARK: Status Bar
