@@ -71,6 +71,18 @@ class ViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
+        
+        let bt = UIButton(frame: CGRect(x: 100, y: 200, width: 50, height: 20))
+        bt.setTitle("change", for: .normal)
+        bt.addTarget(self, action: #selector(ck), for: .touchUpInside)
+        
+        self.view.addSubview(bt)
+    }
+    
+    @objc func ck(_:UIButton) {
+        let context = InvalidationContext()
+        context.invalidateSectionHeaders = true
+        self.collectionView.collectionViewLayout.invalidateLayout(with: context)
     }
 
     // MARK: Status Bar
@@ -91,8 +103,8 @@ extension ViewController: UICollectionViewDataSource {
     {
         return CGSize(width: collectionView.bounds.width, height: 40.0)
     }
-
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return colors.count
     }
 
@@ -118,6 +130,8 @@ extension ViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         viewForSupplementaryElementOfKind kind: String,
         at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        print("supplement")
         
         let cell = collectionView.dequeueReusableSupplementaryView(
             ofKind: SectionHeaderCell.kind,

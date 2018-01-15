@@ -15,4 +15,8 @@ class InvalidationContext: UICollectionViewLayoutInvalidationContext {
     override var invalidateEverything: Bool {
         return shouldInvalidateEverything
     }
+    
+    override func invalidateSupplementaryElements(ofKind elementKind: String, at indexPaths: [IndexPath]) {
+        print("done done done")
+    }
 }

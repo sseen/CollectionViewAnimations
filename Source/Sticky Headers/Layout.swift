@@ -215,6 +215,8 @@ class Layout: UICollectionViewLayout {
 
         let originChanged = !oldBounds.origin.equalTo(newBounds.origin)
         let sizeChanged = !oldBounds.size.equalTo(newBounds.size)
+        
+        print("\(oldBounds),\(newBounds),\(sizeChanged),\(originChanged)")
 
         if sizeChanged {
             invalidationContext.shouldInvalidateEverything = true
