@@ -10,7 +10,7 @@ import UIKit
 
 class InvalidationContext: UICollectionViewLayoutInvalidationContext {
     var invalidateSectionHeaders = false
-    var shouldInvalidateEverything = true
+    var shouldInvalidateEverything = false
 
     override var invalidateEverything: Bool {
         return shouldInvalidateEverything
